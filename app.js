@@ -199,23 +199,23 @@ app.put("/todos/:todoId/", async (req, res) => {
   } else {
     if (todo !== undefined) {
       let qe = `UPDATE todo SET todo="${todo}" WHERE id="${todoId}";`;
-      db.run(qe);
+      await db.run(qe);
       res.send("Todo Updated");
     } else if (status !== undefined) {
       let qe = `UPDATE todo SET status="${status}" WHERE id="${todoId}";`;
-      db.run(qe);
+      await db.run(qe);
       res.send("Status Updated");
     } else if (priority !== undefined) {
       let qe = `UPDATE todo SET priority="${priority}" WHERE id="${todoId}";`;
-      db.run(qe);
+      await db.run(qe);
       res.send("Priority Updated");
     } else if (category !== undefined) {
       let qe = `UPDATE todo SET category="${category}" WHERE id="${todoId}";`;
-      db.run(qe);
+      await db.run(qe);
       res.send("Category Updated");
     } else {
       let qe = `UPDATE todo SET due_date="${dueDate}" WHERE id="${todoId}";`;
-      db.run(qe);
+      await db.run(qe);
       res.send("Due Date Updated");
     }
   }
